@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 
-/* Custom Properties, Update these for your own design. */
+/* Custom Properties, May have to change background color if it affects font-weight display. */
 
 :root{
 	--ff-primary: 'Source Sans Pro', sans-serif ;
@@ -57,6 +57,9 @@ img{
 	max-width: 100%;
 }
 
+strong { font-weight: var(--fw-bold) }
+
+/*Cannot figure out how to make 'DevAmber' bold, will fix*/
 /* Typography */
 
 h1,
@@ -91,6 +94,7 @@ h3 { font-size: var(--fs-h3) }
 .section__subtitle--about-me {
 	background: var(--clr-accent);
 	font-family: var(--fs-secondary);
+	margin-bottom: 1em;
 }
 
 
@@ -104,6 +108,28 @@ nav { display: none; }
 	position: relative;
 }
 
+@media (min-width: 600px) {
+	.intro {
+		display: grid;
+		width: min-content;
+		margin: 0 auto;
+		grid-column-gap: 1em;
+		grid-template-areas:
+			"img title"
+			"img subtitle";
+		grid-template-columns: min-content max-content;
+	}
+
+	.intro__img {
+		grid-area: img;
+		min-width: 250px;
+	}
+
+	.section__subtitle--intro {
+		align-self: start;
+		grid-column: -1 / 1;
+	}
+}
 
 
 
